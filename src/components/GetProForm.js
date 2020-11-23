@@ -40,7 +40,7 @@ function GetProgasModal(props) {
       e.stopPropagation();
     }
 
-    // setValidated(true);
+    setValidated(true);
 
     let { phone } = formState;
     let data = { phone };
