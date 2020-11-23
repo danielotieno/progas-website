@@ -33,7 +33,7 @@ function GetProgasModal(props) {
     dataValue: 'nairobi',
   });
 
-  const handleAll = (e) => {
+  async function handleAll(e) {
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
       e.preventDefault();
@@ -44,14 +44,18 @@ function GetProgasModal(props) {
 
     let { phone } = formState;
     let data = { phone };
-    axios.post(endpoints.contact, JSON.stringify(data)).then((response) => {
-      if (response.status !== 200) {
-        handleError();
-      } else {
-        handleSuccess();
-      }
-    });
-  };
+
+    let response = await axios.post(endpoints.contact, JSON.stringify(data));
+
+    console.log(response);
+
+    if (response.status !== 200) {
+      handleError();
+      e.preventDefault();
+    } else {
+      handleSuccess();
+    }
+  }
 
   const handleSuccess = () => {
     setFormState({
