@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { navigate } from 'gatsby';
+
 import {
   Container,
   Form,
@@ -12,7 +14,6 @@ import {
 import getProgasImg from '../images/get.png';
 import Bike from '../images/bike1.png';
 import regions from '../constants/regions';
-import ThankYouPage from './ThankYouPage';
 
 const endpoints = {
   contact: '/.netlify/functions/sendSms',
@@ -34,7 +35,8 @@ function GetProgasModal(props) {
   });
 
   const handleAll = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
+
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
       e.preventDefault();
@@ -46,11 +48,12 @@ function GetProgasModal(props) {
     let { phone } = formState;
     let data = { phone };
     axios.post(endpoints.contact, JSON.stringify(data)).then((response) => {
+      console.log(response);
       if (response.status !== 200) {
         handleError();
       } else {
         handleSuccess();
-        <ThankYouPage />;
+        return navigate('/progasthankyou');
       }
     });
   };
@@ -113,7 +116,6 @@ function GetProgasModal(props) {
                 method='POST'
                 data-netlify='true'
                 data-netlify-honeypot='bot-field'
-                action='/progasthankyou'
                 validated={validated}
                 onSubmit={handleAll}>
                 <input
