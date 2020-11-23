@@ -51,7 +51,6 @@ function GetProgasModal(props) {
         handleSuccess();
       }
     });
-    e.preventDefault();
   };
 
   const handleSuccess = () => {
