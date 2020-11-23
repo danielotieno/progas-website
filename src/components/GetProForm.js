@@ -17,6 +17,7 @@ import regions from '../constants/regions';
 
 const endpoints = {
   contact: '/.netlify/functions/sendSms',
+  hello: '/.netlify/functions/hello',
 };
 
 const axios = require('axios');
@@ -53,7 +54,7 @@ function GetProgasModal(props) {
 
     setValidated(true);
 
-    fetch('/', {
+    fetch(endpoints.hello, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
