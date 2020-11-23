@@ -34,6 +34,7 @@ function GetProgasModal(props) {
   });
 
   const handleAll = (e) => {
+    e.preventDefault();
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
       e.preventDefault();
