@@ -53,14 +53,14 @@ function GetProgasModal(props) {
 
     setValidated(true);
 
-    axios
-      .post('/', {
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-          'form-name': 'GetProGas Request Final v1',
-          ...formState,
-        }),
-      })
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': 'GetProGas',
+        ...formState,
+      }),
+    })
       .then((res) => console.log(res))
       .catch((error) => console.log(error));
 
@@ -69,7 +69,6 @@ function GetProgasModal(props) {
     axios
       .post(endpoints.contact, JSON.stringify(data))
       .then((response) => {
-        console.log(response);
         if (response.status !== 200) {
           handleError();
         } else {
@@ -134,7 +133,7 @@ function GetProgasModal(props) {
           <Row>
             <Col>
               <Form
-                name='GetProGas Request Final v1'
+                name='GetProGas'
                 method='POST'
                 data-netlify='true'
                 data-netlify-honeypot='bot-field'
