@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
 import {
   Container,
   Form,
@@ -13,6 +12,7 @@ import {
 import getProgasImg from '../images/get.png';
 import Bike from '../images/bike1.png';
 import regions from '../constants/regions';
+import ThankYouPage from './ThankYouPage';
 
 const endpoints = {
   contact: '/.netlify/functions/sendSms',
@@ -50,6 +50,7 @@ function GetProgasModal(props) {
         handleError();
       } else {
         handleSuccess();
+        <ThankYouPage />;
       }
     });
   };
