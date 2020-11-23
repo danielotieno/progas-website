@@ -45,17 +45,31 @@ function GetProgasModal(props) {
 
     setValidated(true);
 
+    axios
+      .post('/', {
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'GetProGas Request Final v1',
+          ...formState,
+        }),
+      })
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
+
     let { phone } = formState;
     let data = { phone };
-    axios.post(endpoints.contact, JSON.stringify(data)).then((response) => {
-      console.log(response);
-      if (response.status !== 200) {
-        handleError();
-      } else {
-        handleSuccess();
-        return navigate('/progasthankyou');
-      }
-    });
+    axios
+      .post(endpoints.contact, JSON.stringify(data))
+      .then((response) => {
+        console.log(response);
+        if (response.status !== 200) {
+          handleError();
+        } else {
+          handleSuccess();
+          return navigate('/progasthankyou');
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleSuccess = () => {
