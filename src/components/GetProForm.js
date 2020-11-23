@@ -207,11 +207,9 @@ function GetProgasModal(props) {
                 <Form.Row className='label-text'>
                   <Col></Col>
                 </Form.Row>
-                <Link to="progasthankyou">
                 <Button className='form-btn' type='submit'>
                   Request a Callback
                 </Button>
-                </Link>
               </Form>
             </Col>
             <Col className='bike'>
@@ -225,7 +223,7 @@ function GetProgasModal(props) {
 }
 
 export default function GetProForm() {
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   return (
     <Row>
