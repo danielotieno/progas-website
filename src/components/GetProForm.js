@@ -40,9 +40,7 @@ function GetProgasModal(props) {
       e.stopPropagation();
     }
 
-    setValidated(true);
-
-    e.preventDefault();
+    // setValidated(true);
 
     let { phone } = formState;
     let data = { phone };
@@ -53,6 +51,7 @@ function GetProgasModal(props) {
         handleSuccess();
       }
     });
+    e.preventDefault();
   };
 
   const handleSuccess = () => {
@@ -114,7 +113,6 @@ function GetProgasModal(props) {
                 data-netlify='true'
                 data-netlify-honeypot='bot-field'
                 action='/progasthankyou'
-                noValidate
                 validated={validated}
                 onSubmit={handleAll}>
                 <input
