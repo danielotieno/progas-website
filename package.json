@@ -28,6 +28,7 @@
     "gatsby": "^2.24.91",
     "gatsby-plugin-anchor-links": "^1.2.0",
     "gatsby-plugin-instagram-embed": "^2.0.1",
+    "gatsby-plugin-react-helmet": "^3.5.0",
     "gatsby-plugin-sass": "^2.3.22",
     "gatsby-plugin-twitter": "^2.3.12",
     "gatsby-remark-embed-video": "^3.0.10",
@@ -38,6 +39,7 @@
     "react-bootstrap": "^1.4.0",
     "react-dom": "^16.12.0",
     "react-facebook": "^8.1.4",
+    "react-helmet": "^6.1.0",
     "react-instagram-embed": "^2.0.0",
     "react-responsive-carousel": "^3.2.10",
     "react-youtube-embed": "^1.0.3"
