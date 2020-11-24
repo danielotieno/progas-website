@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import { navigate } from 'gatsby';
 import {
   Container,
   Form,
@@ -49,6 +49,7 @@ function SellProgasModal(props) {
         handleError();
       } else {
         handleSuccess();
+        return navigate('/thankyou');
       }
     });
   };
@@ -108,19 +109,13 @@ function SellProgasModal(props) {
           <Row>
             <Col>
               <Form
-                name='SellProGas Request Final v1'
+                name='SellProGas'
                 method='POST'
                 data-netlify='true'
                 data-netlify-honeypot='bot-field'
-                action='/thankyou'
-                noValidate
                 validated={validated}
                 onSubmit={handleAll}>
-                <input
-                  type='hidden'
-                  name='form-name'
-                  value='SellProGas Request Final v1'
-                />
+                <input type='hidden' name='form-name' value='SellProGas' />
                 <div hidden>
                   <Form.Label>
                     Don't Fill this input: <input name='bot-field' />
@@ -208,11 +203,9 @@ function SellProgasModal(props) {
                 <Form.Row className='label-text'>
                   <Col></Col>
                 </Form.Row>
-                <Link to='thankyou'>
-                  <Button className='form-btn' type='submit'>
-                    Request a Callback
-                  </Button>
-                </Link>
+                <Button className='form-btn' type='submit'>
+                  Request a Callback
+                </Button>
               </Form>
             </Col>
             <Col sm={6} className='bike'>
