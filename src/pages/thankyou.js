@@ -10,7 +10,8 @@ export default function SellProgasThankYouPage() {
     <Layout>
     <SEO
         title='ProGas Thank You'
-        de
+        description='Thank you page. It shows successful filling of Sell ProGas-form.'
+      />
       <Container className="get-form">
         <Row className="section-heading">
           <Col>
