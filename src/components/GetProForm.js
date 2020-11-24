@@ -17,7 +17,6 @@ import regions from '../constants/regions';
 
 const endpoints = {
   contact: '/.netlify/functions/sendSms',
-  hello: '/.netlify/functions/hello',
 };
 
 const axios = require('axios');
@@ -35,14 +34,6 @@ function GetProgasModal(props) {
     dataValue: 'nairobi',
   });
 
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]),
-      )
-      .join('&');
-  };
-
   const handleAll = (e) => {
     e.preventDefault();
 
@@ -53,17 +44,6 @@ function GetProgasModal(props) {
     }
 
     setValidated(true);
-
-    fetch(endpoints.hello, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': 'GetProGas',
-        ...formState,
-      }),
-    })
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
 
     let { phone } = formState;
     let data = { phone };
@@ -140,11 +120,7 @@ function GetProgasModal(props) {
                 data-netlify-honeypot='bot-field'
                 validated={validated}
                 onSubmit={handleAll}>
-                <input
-                  type='hidden'
-                  name='form-name'
-                  value='GetProGas Request Final v1'
-                />
+                <input type='hidden' name='form-name' value='GetProGas' />
                 <div hidden>
                   <Form.Label>
                     Don't Fill this input: <input name='bot-field' />
