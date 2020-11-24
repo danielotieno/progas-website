@@ -44,14 +44,17 @@ function SellProgasModal(props) {
 
     let { phone } = formState;
     let data = { phone };
-    axios.post(endpoints.contact, JSON.stringify(data)).then((response) => {
-      if (response.status !== 200) {
-        handleError();
-      } else {
-        handleSuccess();
-        return navigate('/thankyou');
-      }
-    });
+    axios
+      .post(endpoints.contact, JSON.stringify(data))
+      .then((response) => {
+        if (response.status !== 200) {
+          handleError();
+        } else {
+          handleSuccess();
+          return navigate('/thankyou');
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleSuccess = () => {
