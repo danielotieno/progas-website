@@ -10,7 +10,7 @@ import {
   Card,
   Modal,
 } from 'react-bootstrap';
-import sellProgasImg from '../images/sell.png';
+import sellProgasImg from '../images/get.png';
 import Bike from '../images/bike1.png';
 import regions from '../constants/regions';
 
@@ -208,10 +208,10 @@ function SellProgasModal(props) {
                 <Form.Row className='label-text'>
                   <Col></Col>
                 </Form.Row>
-                <Link to="thankyou">
-                <Button className='form-btn' type='submit'>
-                  Request a Callback
-                </Button>
+                <Link to='thankyou'>
+                  <Button className='form-btn' type='submit'>
+                    Request a Callback
+                  </Button>
                 </Link>
               </Form>
             </Col>
