@@ -89,7 +89,6 @@ NavBar Styles
   color: #1a1d3f !important;
 }
 
-
 /*
 ===============
 Slider Styles
@@ -104,27 +103,23 @@ Slider Styles
 }
 
 .carousel .control-prev.control-arrow {
-  background-image: url('../images/ArrowPrev.png');
   background-position: center;
   background-repeat: no-repeat;
   left: 2%;
 }
 
 .carousel .control-prev.control-arrow:hover {
-  background-image: url('../images/ArrowPrev.png');
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .carousel .control-next.control-arrow {
-  background-image: url('../images/ArrowNext.png');
   background-position: center;
   background-repeat: no-repeat;
   right: 2%;
 }
 
 .carousel .control-next.control-arrow:hover {
-  background-image: url('../images/ArrowNext.png');
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -134,7 +129,7 @@ Slider Styles
   transition: none;
   height: 20px;
   margin: auto;
-  opacity:0;
+  opacity: 0;
 }
 
 .carousel .control-prev.control-arrow {
@@ -146,7 +141,6 @@ Social Media Styles
 ===============
 */
 @media (max-width: 767px) {
-
   div.social-row {
     display: flex;
     flex-direction: column;
@@ -158,7 +152,7 @@ Social Media Styles
     padding-left: 2px !important;
   }
 
-   div.safe-row {
+  div.safe-row {
     display: flex;
     flex-direction: column;
   }
@@ -575,10 +569,39 @@ ProGas 404-Page Styles
 ===============
 */
 
-.error-h1 {
-  height: 23vh;
+.page_404 {
+  padding: 40px 0;
+  font-family: var(--ff-primary);
 }
 
+.page_404 img {
+  width: 100%;
+}
+
+.four_zero_four_bg {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+}
+
+.four_zero_four_bg h1 {
+  font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+  font-size: 80px;
+}
+
+.link_404 {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: var(--clr-pink);
+  margin: 20px 0;
+  display: inline-block;
+}
+.contant_box_404 {
+  margin-top: -50px;
+}
 
 /*
 ===============
@@ -698,7 +721,6 @@ Media Query Styles
   }
 }
 @media only screen and (max-width: 576px) {
-
   div.get-form h1 {
     text-align: center;
     font-size: x-large;
