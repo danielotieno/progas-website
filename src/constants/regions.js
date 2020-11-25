@@ -1,5 +1,5 @@
 const regions = {
-  nairobi: [
+  Nairobi: [
     { id: '1', text: 'Bisil' },
     { id: '2', text: 'Dandora Dayspring/Terminus' },
     { id: '3', text: 'Fedha' },
@@ -13,7 +13,7 @@ const regions = {
     { id: '11', text: 'Other' },
   ],
 
-  central: [
+  Central: [
     { id: '1', text: 'Chuka' },
     { id: '2', text: 'Embu' },
     { id: '3', text: 'Isiolo Burapesa ' },
@@ -37,7 +37,7 @@ const regions = {
     { id: '21', text: 'Other' },
   ],
 
-  eastern: [
+  Eastern: [
     { id: '1', text: 'Kalamba' },
     { id: '2', text: 'Kathiani' },
     { id: '3', text: 'Kathonzweni' },
@@ -66,7 +66,7 @@ const regions = {
     { id: '26', text: 'Other' },
   ],
 
-  western: [
+  Western: [
     { id: '1', text: 'Amagoro' },
     { id: '2', text: 'Bondo' },
     { id: '3', text: 'Bungoma Township' },
@@ -93,7 +93,7 @@ const regions = {
     { id: '24', text: 'Other' },
   ],
 
-  nakuru: [
+  Nakuru: [
     { id: '1', text: 'Checkpoint' },
     { id: '2', text: 'Engineer' },
     { id: '3', text: 'Ewaso Nyiro' },
@@ -126,7 +126,7 @@ const regions = {
     { id: '30', text: 'Other' },
   ],
 
-  southrift: [
+  Southrift: [
     { id: '1', text: 'Awendo' },
     { id: '2', text: 'HomaBay Sofia' },
     { id: '3', text: 'Isebania' },
@@ -149,7 +149,7 @@ const regions = {
     { id: '20', text: 'Other' },
   ],
 
-  northrift: [
+  Northrift: [
     { id: '1', text: 'Brooke Centre' },
     { id: '2', text: 'Bureti' },
     { id: '3', text: 'Burnt Forest ' },
@@ -174,9 +174,7 @@ const regions = {
     { id: '22', text: 'Other' },
   ],
 
-  other: [
-    {id: '1', text: 'Other'},
-  ]
+  Other: [{ id: '1', text: 'Other' }],
 };
 
 export default regions;

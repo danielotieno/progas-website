@@ -28,23 +28,12 @@ function GetProgasModal(props) {
     phone: '',
     location: '',
     area: '',
-    cylinder: '',
   });
   const [regionData, setRegionData] = useState({
-    dataValue: 'nairobi',
+    Location: 'Nairobi',
   });
 
-  const handleAll = (e) => {
-    e.preventDefault();
-
-    const form = e.currentTarget;
-    if (form.checkValidity() === false) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-
-    setValidated(true);
-
+  const sendMessage = () => {
     let { phone } = formState;
     let data = { phone };
     axios
@@ -54,8 +43,30 @@ function GetProgasModal(props) {
           handleError();
         } else {
           handleSuccess();
-          return navigate('/progasthankyou');
         }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    setValidated(true);
+
+    axios({
+      method: 'post',
+      url: 'https://formspree.io/f/mzbkazoj',
+      data: new FormData(form),
+    })
+      .then(() => {
+        sendMessage();
+        return navigate('/progasthankyou');
       })
       .catch((err) => console.log(err));
   };
@@ -87,8 +98,8 @@ function GetProgasModal(props) {
     setRegionData({ ...regionData, [e.target.name]: e.target.value });
   };
 
-  const { dataValue } = regionData;
-  const dataOptions = regions[dataValue];
+  const { Location } = regionData;
+  const dataOptions = regions[Location];
 
   return (
     <Modal
@@ -113,26 +124,14 @@ function GetProgasModal(props) {
 
           <Row>
             <Col>
-              <Form
-                name='GetProGas'
-                method='POST'
-                data-netlify='true'
-                data-netlify-honeypot='bot-field'
-                validated={validated}
-                onSubmit={handleAll}>
-                <input type='hidden' name='form-name' value='GetProGas' />
-                <div hidden>
-                  <Form.Label>
-                    Don't Fill this input: <input name='bot-field' />
-                  </Form.Label>
-                </div>
+              <Form validated={validated} onSubmit={handleOnSubmit}>
                 <Form.Row className='label-text'>
                   <Col>
                     <Form.Label className='label-name'>Full Name</Form.Label>
                     <Form.Control
                       className='form-input'
                       type='text'
-                      name='name'
+                      name='Name'
                       onChange={onChange}
                       pattern='^[a-zA-Z ]*$'
                       placeholder='Full Name'
@@ -166,19 +165,19 @@ function GetProgasModal(props) {
                     <Form.Control
                       className='form-input'
                       type='text'
-                      name='dataValue'
+                      name='Location'
                       onChange={onChangeRegionData}
                       pattern='^[a-zA-Z ]*$'
                       required
                       as='select'>
-                      <option value='nairobi'>Nairobi</option>
-                      <option value='central'>Central</option>
-                      <option value='western'>Western</option>
-                      <option value='nakuru'>Nakuru/Naivasha</option>
-                      <option value='southrift'>South Rift</option>
-                      <option value='northrift'>North Rift</option>
-                      <option value='eastern'>Eastern</option>
-                      <option value='other'>Other</option>
+                      <option value='Nairobi'>Nairobi</option>
+                      <option value='Central'>Central</option>
+                      <option value='Western'>Western</option>
+                      <option value='Nakuru'>Nakuru/Naivasha</option>
+                      <option value='Southrift'>South Rift</option>
+                      <option value='Northrift'>North Rift</option>
+                      <option value='Eastern'>Eastern</option>
+                      <option value='Other'>Other</option>
                     </Form.Control>
 
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -190,11 +189,12 @@ function GetProgasModal(props) {
                     <Form.Label className='label-name'>Area</Form.Label>
                     <Form.Control
                       className='form-input'
+                      name='Area'
                       type='text'
                       required
                       as='select'>
                       {dataOptions.map((o) => (
-                        <option key={o.id} value={o.id}>
+                        <option key={o.id} value={o.text}>
                           {o.text}
                         </option>
                       ))}

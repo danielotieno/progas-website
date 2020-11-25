@@ -18,11 +18,9 @@ exports.handler = async (event, context) => {
   let response;
   let data = JSON.parse(event.body);
   let { phone } = data;
-  console.log(phone);
   let phoneArray = Array.from(phone);
   phoneArray[0] = '+254';
   const phoneNumber = phoneArray.join('');
-  console.log(phoneNumber);
   const options = {
     to: [`${phoneNumber}`],
     message:
