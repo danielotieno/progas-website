@@ -571,6 +571,17 @@ hr {
 
 /*
 ===============
+ProGas 404-Page Styles
+===============
+*/
+
+.error-h1 {
+  height: 23vh;
+}
+
+
+/*
+===============
 Media Query Styles
 ===============
 */

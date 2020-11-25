@@ -2,10 +2,16 @@ import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import Layout from '../components/Layout';
 import Bike from '../images/bike1.png';
+import SEO from '../components/SEO.js';
+
 
 export default function SellProgasThankYouPage() {
   return (
     <Layout>
+    <SEO
+        title='ProGas Thank You'
+        description='Thank you page. It shows successful filling of Sell ProGas-form.'
+      />
       <Container className="get-form">
         <Row className="section-heading">
           <Col>
